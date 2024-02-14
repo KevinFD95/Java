@@ -1327,40 +1327,4 @@ public class Database {
 			return false;
 		}
 	}
-	
-	public boolean updateEmployerStreet_By_EmpId(int empId, String newStreet) {
-		return true;
-	}
-	
-	public boolean updateEmployerStreet_By_UserId(int userId, String newStreet) {
-		return true;
-	}
-	
-	public boolean updateEmployerStreet_By_Dni(String dni, String newStreet) {
-		return true;
-	}
-	
-	public boolean updateEmployerStNum_By_EmpId(int empId, int newNum) {
-		return true;
-	}
-	
-	public boolean updateEmployerStNum_By_UserId(int userId, int newNum) {
-		return true;
-	}
-	
-	public boolean updateEmployerStNum_By_Dni(String dni, int newNum) {
-		return true;
-	}
-	
-	public boolean updateEmployerEsc_By_EmpId(int empId, String newEsc) {
-		return true;
-	}
-	
-	public boolean updateEmployerEsc_By_UserId(int userId, String newEsc) {
-		return true;
-	}
-	
-	public boolean updateEmployerEsc_By_Dni(String dni, String newEsc) {
-		return true;
-	}
 }
