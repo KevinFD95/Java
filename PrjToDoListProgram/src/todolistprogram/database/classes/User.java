@@ -1,5 +1,8 @@
 package src.todolistprogram.database.classes;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class User {
 
     /**
@@ -15,7 +18,14 @@ public class User {
     public User(int userId, String userName, String userPass) {
         this.userId = userId;
         this.userName = userName;
-        this.userPass = userPass;
+
+        if (isValidPassword(userPass)) {
+            this.userPass = userPass;
+        } else {
+            throw new IllegalArgumentException("La contraseña debe contener " +
+                    "al menos una mayúscula, minúscula, número y carácter " +
+                    "especial");
+        }
     }
 
     /**
@@ -69,5 +79,16 @@ public class User {
         return "User ID: " + this.getUserId() + "\n" +
                 "Username: " + this.getUserName() + "\n" +
                 "Password: " + this.getUserPass();
+    }
+
+    private boolean isValidPassword(String userPass) {
+        if (userPass.length() < 10) {
+            return false;
+        }
+
+        Pattern pattern = Pattern.compile("^(?=.*\\d)(?=.*[a-z])" +
+                "(?=.*[A-Z])(?=.*[@#$%^&+=]).*$");
+        Matcher matcher = pattern.matcher(userPass);
+        return matcher.matches();
     }
 }
