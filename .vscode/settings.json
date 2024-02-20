@@ -1,7 +1,8 @@
 {
     "java.configuration.updateBuildConfiguration": "interactive",
     "java.project.sourcePaths": [
-        "PrjToDoListProgram"
+        "PrjToDoListProgramWithDatabase",
+        "PrjToDoListProgramLocal"
     ],
     "java.project.referencedLibraries": [
         "lib/**/*.jar",
