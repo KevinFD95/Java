@@ -3,7 +3,7 @@ package src.classes;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-public class ToDo {
+public class Task {
 
     /**
      * ATTRIBUTES
@@ -20,7 +20,7 @@ public class ToDo {
     /**
      * CONSTRUCTOR
      */
-    public ToDo(int position, String title, String description,
+    public Task(int position, String title, String description,
             LocalDate endDate, LocalDateTime endTime) {
         this.position = position;
         this.title = title;
