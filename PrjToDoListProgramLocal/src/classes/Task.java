@@ -18,13 +18,25 @@ public class Task {
     private boolean isDone = false;
 
     /**
-     * CONSTRUCTOR
+     * CONSTRUCTORS
      */
     public Task(int position, String title, String description,
             LocalDate endDate, LocalDateTime endTime) {
         this.position = position;
         this.title = title;
         this.description = description;
+        this.endDate = endDate;
+        this.endTime = endTime;
+    }
+
+    public Task(int position, String title, String description,
+            LocalDate creationDate, LocalDateTime creationTime,
+            LocalDate endDate, LocalDateTime endTime, boolean isDone) {
+        this.position = position;
+        this.title = title;
+        this.description = description;
+        this.creationDate = creationDate;
+        this.creationTime = creationTime;
         this.endDate = endDate;
         this.endTime = endTime;
     }
