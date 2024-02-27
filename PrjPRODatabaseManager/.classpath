@@ -7,5 +7,6 @@
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="E:/IFP/MP03_Programacion/UF6/postgreSQL/postgresql-42.7.0.jar"/>
+	<classpathentry excluding="src/" kind="src" path=""/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
