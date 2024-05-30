@@ -39,25 +39,33 @@ public class GamePanel extends JPanel implements ActionListener {
         this.setBackground(Color.BLACK);
         this.setFocusable(true);
         this.addKeyListener(new MyKeyAdapter());
-        startGame();
+        initGame();
     }
-    
-    public void startGame() {
+
+    private void initGame() {
         bodyParts = 2;
         applesEaten = 0;
         direction = 'R';
         newApple();
         running = true;
         paused = false;
-        DELAY = 250;
+        DELAY = 500;
 
         for (int i=0;i<bodyParts;i++) {
             x[i] = 0;
             y[i] = 0;
         }
 
+        if (timer != null) {
+            timer.stop();
+        }
+
         timer = new Timer(DELAY, this);
         timer.start();
+    }
+
+    public void startGame() {
+        initGame();
     }
 
     public void paintComponent(Graphics g) {
@@ -254,7 +262,7 @@ public class GamePanel extends JPanel implements ActionListener {
                         direction = 'R';
                     }
                 break;
-                case KeyEvent.VK_SPACE:
+                case KeyEvent.VK_ESCAPE:
                     if (running && !paused) {
                         paused = true;
                         running = false;
