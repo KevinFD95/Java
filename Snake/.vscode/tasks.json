@@ -1,0 +1,25 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "javac -d bin src/Snake/*.java src/Snake/classes/*.java",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "createJar",
+            "type": "shell",
+            "command": "jar cfe SnakeGame.jar Snake.WindowGame -C bin/ .",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "dependsOn": "compile",
+            "problemMatcher": []
+        }
+    ]
+}
