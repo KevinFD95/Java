@@ -4,15 +4,16 @@ import javax.swing.JFrame;
 
 public class GameFrame extends JFrame {
     
+    // OBJECTS
     private TitlePanel titlePanel;
     private GamePanel gamePanel;
 
+    // CONSTRUCTOR GAMEFRAME
     public GameFrame() {
 
         titlePanel = new TitlePanel(this);
         gamePanel = new GamePanel();
 
-        
         this.setTitle("Snake");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(false);
@@ -24,6 +25,7 @@ public class GameFrame extends JFrame {
         this.setLocationRelativeTo(null);
     }
     
+    // SHOW TITLEPANEL METHOD
     public void showTitlePanel() {
         this.getContentPane().removeAll();
         this.add(titlePanel);
@@ -32,6 +34,7 @@ public class GameFrame extends JFrame {
         this.setLocationRelativeTo(null);
     }
     
+    // SHOW GAMEPANEL METHOD, STARTS THE GAME
     public void startGame() {
         this.getContentPane().removeAll();
         this.getContentPane();

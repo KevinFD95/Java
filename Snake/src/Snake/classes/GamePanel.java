@@ -33,6 +33,7 @@ public class GamePanel extends JPanel implements ActionListener {
     private Timer timer;
     private Random random;
 
+    // CONSTRUCT GAMEPANEL
     public GamePanel() {
         random = new Random();
         this.setPreferredSize(new Dimension(SCREEN_WIDTH, SCREEN_HEIGHT));
@@ -42,6 +43,12 @@ public class GamePanel extends JPanel implements ActionListener {
         initGame();
     }
 
+    // STARTING METHOD
+    public void startGame() {
+        initGame();
+    }
+
+    // STARTING SETTINGS
     private void initGame() {
         bodyParts = 2;
         applesEaten = 0;
@@ -64,15 +71,13 @@ public class GamePanel extends JPanel implements ActionListener {
         timer.start();
     }
 
-    public void startGame() {
-        initGame();
-    }
-
+    // DRAW BASICS METHOD (LOADED IN REPAINT METHOD)
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         draw(g);
     }
 
+    // DRAW ELEMENTS METHOD
     public void draw(Graphics g) {
 
         if (running) {
@@ -107,6 +112,7 @@ public class GamePanel extends JPanel implements ActionListener {
         }
     }
 
+    // SPAWN APPLE METHOD
     public void newApple() {
         boolean appleOnSnake;
         do {
@@ -124,6 +130,7 @@ public class GamePanel extends JPanel implements ActionListener {
         } while (appleOnSnake);
     }
 
+    // SNAKE MOVE METHOD
     public void move() {
         for (int i=bodyParts;i>0;i--) {
             x[i] = x[i-1];
@@ -146,6 +153,7 @@ public class GamePanel extends JPanel implements ActionListener {
         }
     }
 
+    // CHECKS IF SNAKE EATS AN APPLE
     public void checkApple() {
         if ((x[0] == appleX) && (y[0] == appleY)) {
             bodyParts++;
@@ -162,6 +170,7 @@ public class GamePanel extends JPanel implements ActionListener {
         }
     }
 
+    // CHECK COLLISIONS WITH SNAKES BODY AND BORDER GAMEPANEL
     public void checkCollisions() {
         // CHECKS IF HEAD COLLIDES WITH BODY
         for (int i=bodyParts;i>0;i--) {
@@ -195,6 +204,7 @@ public class GamePanel extends JPanel implements ActionListener {
         }
     }
 
+    // SHOW SCORE METHOD
     public void showScore(Graphics g) {
         // SCORE TEXT
         g.setColor(Color.RED);
@@ -203,6 +213,7 @@ public class GamePanel extends JPanel implements ActionListener {
         g.drawString("Score: "+applesEaten, (SCREEN_WIDTH - metrics1.stringWidth("Score: "+applesEaten))/2, g.getFont().getSize());
     }
     
+    // SHOW PAUSED METHOD
     public void showPaused (Graphics g) {
         showScore(g);
 
@@ -214,6 +225,7 @@ public class GamePanel extends JPanel implements ActionListener {
         g.drawString("Paused", (SCREEN_WIDTH - metrics2.stringWidth("Paused"))/2, SCREEN_HEIGHT/2);
     }
 
+    // SHOW GAME OVER METHOD
     public void gameOver(Graphics g) {
         showScore(g);
         
@@ -226,6 +238,7 @@ public class GamePanel extends JPanel implements ActionListener {
         g.drawString("Game Over", (SCREEN_WIDTH - metrics2.stringWidth("Game Over"))/2, SCREEN_HEIGHT/2);
     }
 
+    // LISTENER METHOD
     @Override
     public void actionPerformed(ActionEvent e) {
 
@@ -237,6 +250,7 @@ public class GamePanel extends JPanel implements ActionListener {
         repaint();
     }
 
+    // INNER CLASS FOR KEYEVENTS AND LISTENER
     public class MyKeyAdapter extends KeyAdapter {
         @Override
         public void keyPressed(KeyEvent e) {

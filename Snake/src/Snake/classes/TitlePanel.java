@@ -9,17 +9,21 @@ import java.awt.event.MouseEvent;
 import javax.swing.*;
 
 public class TitlePanel extends JPanel {
-    
+
+    // CONSTRUCTOR TITLEPANEL
     public TitlePanel(GameFrame gameFrame) {
+        // PANEL SETTINGS
         this.setPreferredSize(new Dimension(750, 750));
         this.setBackground(Color.BLACK);
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
+        // TITLE LABEL
         JLabel titleLabel = new JLabel("Snake Game");
         titleLabel.setFont(new Font("Ink Free", Font.BOLD, 75));
         titleLabel.setForeground(Color.GREEN);
         titleLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
 
+        // PLAY BUTTON SETTINGS
         JButton playButton = new JButton("Play");
         customizeButton(playButton, Color.GREEN);
         playButton.addActionListener(new ActionListener() {
@@ -29,6 +33,7 @@ public class TitlePanel extends JPanel {
             }
         });
 
+        // EXIT BUTTON SETTINGS
         JButton exitButton = new JButton("Exit");
         customizeButton(exitButton, Color.RED);
         exitButton.addActionListener(new ActionListener() {
@@ -38,6 +43,7 @@ public class TitlePanel extends JPanel {
             }
         });
 
+        // ADDING ELEMENTS TO PANEL
         this.add(Box.createVerticalGlue());
         this.add(titleLabel);
         this.add(Box.createRigidArea(new Dimension(0, 50)));
@@ -47,6 +53,7 @@ public class TitlePanel extends JPanel {
         this.add(Box.createVerticalGlue());
     }
 
+    // CUSTOM BUTTON OPTIONS
     private void customizeButton(JButton button, Color color) {
         button.setFont(new Font("Ink Free", Font.BOLD, 50));
         button.setAlignmentX(Component.CENTER_ALIGNMENT);
