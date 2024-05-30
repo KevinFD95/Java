@@ -10,8 +10,8 @@ import java.awt.event.*;
 public class GamePanel extends JPanel implements ActionListener {
     
     // GAME BOARD AND CELL SIZE
-    private static final int SCREEN_WIDTH = 1000;
-    private static final int SCREEN_HEIGHT = 1000;
+    private static final int SCREEN_WIDTH = 750;
+    private static final int SCREEN_HEIGHT = 750;
     private static final int UNIT_SIZE = 25;
 
     // GAME CELLS AMOUNT & COORDS
