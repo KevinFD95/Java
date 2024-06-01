@@ -5,18 +5,40 @@ import javax.swing.*;
 
 public class GameFrame extends JFrame {
 
-    private GamePanel panel;
+    private TitlePanel titlePanel;
+    private GamePanel gamePanel;
 
     public GameFrame() {
-        panel = new GamePanel();
-
-        this.add(panel);
+        titlePanel = new TitlePanel(this);
+        gamePanel = new GamePanel();
+        
         this.setTitle("Pong Game");
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(false);
         this.setBackground(Color.BLACK);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        showTitlePanel();
+
         this.pack();
         this.setVisible(true);
         this.setLocationRelativeTo(null);
+    }
+
+    public void showTitlePanel() {
+        this.getContentPane().removeAll();
+        this.add(titlePanel);
+        this.revalidate();
+        this.repaint();
+        this.setLocationRelativeTo(null);
+    }
+
+    public void startGame() {
+        this.getContentPane().removeAll();
+        this.getContentPane();
+        this.add(gamePanel);
+        gamePanel.requestFocusInWindow();
+        gamePanel.startGame();
+        this.revalidate();
+        this.repaint();
     }
 }

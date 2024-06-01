@@ -8,7 +8,7 @@ public class GamePanel extends JPanel implements Runnable {
 
     private static final int GAME_WIDTH = 1000;
     private static final int GAME_HEIGHT = (int)(GAME_WIDTH * (0.5555));
-    private static final Dimension SCREEN_SIZE = new Dimension(GAME_WIDTH, GAME_HEIGHT);
+    protected static final Dimension SCREEN_SIZE = new Dimension(GAME_WIDTH, GAME_HEIGHT);
     private static final int BALL_DIAMETER = 20;
     private static final int PADDLE_WIDTH = 25;
     private static final int PADDLE_HEIGHT = 100;
@@ -21,13 +21,17 @@ public class GamePanel extends JPanel implements Runnable {
     private Score score;
 
     public GamePanel() {
+        this.setPreferredSize(SCREEN_SIZE);
+        this.setFocusable(true);
+        this.addKeyListener(new AL());
+
+        startGame();
+    }
+
+    public void startGame() {
         newPaddles();
         newBall();
         score = new Score(GAME_WIDTH, GAME_HEIGHT);
-        this.setFocusable(true);
-        this.addKeyListener(new AL());
-        this.setPreferredSize(SCREEN_SIZE);
-
         gameThread = new Thread(this);
         gameThread.start();
     }
