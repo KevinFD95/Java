@@ -22,9 +22,9 @@ public class GamePanel extends JPanel implements Runnable {
 
     public GamePanel() {
         this.setPreferredSize(SCREEN_SIZE);
+        this.setBackground(Color.BLACK);
         this.setFocusable(true);
         this.addKeyListener(new AL());
-
         startGame();
     }
 
@@ -37,7 +37,6 @@ public class GamePanel extends JPanel implements Runnable {
     }
 
     public void newBall() {
-        //random = new Random();
         ball = new Ball((GAME_WIDTH / 2) - (BALL_DIAMETER / 2), (GAME_HEIGHT / 2) - (BALL_DIAMETER / 2), BALL_DIAMETER, BALL_DIAMETER);
     }
 

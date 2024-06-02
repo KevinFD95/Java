@@ -15,7 +15,7 @@ public class TitlePanel  extends JPanel {
     public TitlePanel(GameFrame gameFrame) {
         this.setPreferredSize(GamePanel.SCREEN_SIZE);
         this.setBackground(Color.BLACK);
-        this.setLayout(new BorderLayout());
+        this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
         JLabel titleLabel = new JLabel("Pong Game", JLabel.CENTER);
         titleLabel.setFont(new Font("Ink Free", Font.BOLD, 75));

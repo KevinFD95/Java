@@ -1,6 +1,7 @@
 package classes;
 
-import java.awt.*;
+import java.awt.Color;
+
 import javax.swing.*;
 
 public class GameFrame extends JFrame {
@@ -9,19 +10,20 @@ public class GameFrame extends JFrame {
     private GamePanel gamePanel;
 
     public GameFrame() {
+
         titlePanel = new TitlePanel(this);
         gamePanel = new GamePanel();
         
         this.setTitle("Pong Game");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(false);
-        this.setBackground(Color.BLACK);
 
         showTitlePanel();
 
         this.pack();
         this.setVisible(true);
         this.setLocationRelativeTo(null);
+        this.setBackground(Color.BLACK);
     }
 
     public void showTitlePanel() {
