@@ -36,7 +36,6 @@ public class GameFrame extends JFrame {
 
     public void startGame() {
         this.getContentPane().removeAll();
-        this.getContentPane();
         this.add(gamePanel);
         gamePanel.requestFocusInWindow();
         gamePanel.startGame();
