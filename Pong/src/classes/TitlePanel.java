@@ -10,6 +10,7 @@ import java.awt.event.MouseEvent;
 public class TitlePanel  extends JPanel {
 
     private JButton singlePlayerButton;
+    private JButton multiPlayerButton;
     private JButton exitButton;
 
     public TitlePanel(GameFrame gameFrame) {
@@ -22,9 +23,18 @@ public class TitlePanel  extends JPanel {
         titleLabel.setForeground(Color.WHITE);
         titleLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-        singlePlayerButton = new JButton("Start");
+        singlePlayerButton = new JButton("Single player");
         customizeButton(singlePlayerButton, Color.WHITE);
         singlePlayerButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                gameFrame.startGame();
+            }
+        });
+
+        multiPlayerButton = new JButton("Multiplayer");
+        customizeButton(multiPlayerButton, Color.WHITE);
+        multiPlayerButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 gameFrame.startGame();
@@ -44,6 +54,8 @@ public class TitlePanel  extends JPanel {
         this.add(titleLabel);
         this.add(Box.createVerticalGlue());
         this.add(singlePlayerButton);
+        this.add(Box.createVerticalGlue());
+        this.add(multiPlayerButton);
         this.add(Box.createVerticalBox());
         this.add(exitButton);
         this.add(Box.createVerticalGlue());

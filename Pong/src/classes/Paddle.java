@@ -7,7 +7,7 @@ public class Paddle extends Rectangle {
 
     private int id;
     private int yVelocity;
-    private int speed = 5;
+    protected int speed = 5;
     private PausePanel pausePanel;
 
     public Paddle(int x, int y, int PADDLE_WIDTH, int PADDLE_HEIGHT, int id) {
